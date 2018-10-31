@@ -6,25 +6,31 @@ class PigLatinizer
     x
   end
 
-  def translate_word(str)
-    alpha = ('a'..'z').to_a
-    vowels = %w[a e i o u]
-    consonants = alpha - vowels
+  def consonant?(char)
+    !char.match(/[aAeEiIoOuU]/)
+  end
 
-    if vowels.include?(str[0])
-      str + 'ay'
-    elsif consonants.include?(str[0]) && consonants.include?(str[1])
-      str[2..-1] + str[0..1] + 'ay'
-    elsif consonants.include?(str[0])
-      str[1..-1] + str[0] + 'ay'
+  def translate_word(word)
+    # word starts with vowel
+    if !consonant?(word[0])
+      word = word + "w"
+    # word starts with 3 consonants
+    elsif consonant?(word[0]) && consonant?(word[1]) && consonant?(word[2])
+      word = word.slice(3..-1) + word.slice(0,3)
+    # word starts with 2 consonants
+    elsif consonant?(word[0]) && consonant?(word[1])
+      word = word.slice(2..-1) + word.slice(0,2)
+    # word starts with 1 consonant
     else
-      str # return unchanged
+      word = word.slice(1..-1) + word.slice(0)
     end
+    word << "ay"
+  end
+
+  def translate_sentence(sentence)
+    sentence.split.collect { |word| piglatinize_word(word) }.join(" ")
   end
 
 
-  def translate_sentence(sentence)
-     sentence.split.collect { |word| translate_word(word) }.join(" ")
-   end
 
 end
