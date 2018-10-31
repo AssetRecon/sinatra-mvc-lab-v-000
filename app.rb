@@ -7,6 +7,6 @@ class App < Sinatra::Base
   end
 
  post '/' do
-   text = params['text']
+   @input_text = params['input_text']
  end
 end
