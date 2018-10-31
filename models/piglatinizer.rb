@@ -1,6 +1,8 @@
 class PigLatinizer
 
-
+def initialize(text)
+  @text = text
+end
 
   def translate str
     alpha = ('a'..'z').to_a
@@ -18,4 +20,5 @@ class PigLatinizer
     end
   end
 
+translate @text
 end
