@@ -1,12 +1,12 @@
 class PigLatinizer
 
   def piglatinize(str)
-    x = (str.split(" ").length == 1) ? piglatinize_word(str) : translate(str)
+    x = (str.split(" ").length == 1) ? piglatinize_word(str) : translate_word(str)
     puts x
     x
   end
 
-  def translate(str)
+  def translate_word(str)
     alpha = ('a'..'z').to_a
     vowels = %w[a e i o u]
     consonants = alpha - vowels
@@ -22,5 +22,9 @@ class PigLatinizer
     end
   end
 
+
+  def translate_sentence(sentence)
+     sentence.split.collect { |word| piglatinize_word(word) }.join(" ")
+   end
 
 end
