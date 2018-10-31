@@ -1,4 +1,5 @@
 require_relative 'config/environment'
+require_relative 'models/pigLatinizer'
 
 class App < Sinatra::Base
 
