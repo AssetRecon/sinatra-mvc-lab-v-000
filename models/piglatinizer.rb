@@ -1,7 +1,7 @@
 class PigLatinizer
 
   def piglatinize(str)
-    x = (str.split(" ").length == 1) ? piglatinize_word(str) : translate_word(str)
+    x = (str.split(" ").length == 1) ? translate_word(str) : translate_sentence(str)
     puts x
     x
   end
