@@ -1,7 +1,7 @@
 class PigLatinizer
 
 def initialize(text)
-  translate text
+  translate(text)
 end
 
   def translate(str)
