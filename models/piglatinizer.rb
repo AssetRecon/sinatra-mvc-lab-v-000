@@ -24,7 +24,7 @@ class PigLatinizer
 
 
   def translate_sentence(sentence)
-     sentence.split.collect { |word| piglatinize_word(word) }.join(" ")
+     sentence.split.collect { |word| translate_word(word) }.join(" ")
    end
 
 end
