@@ -9,5 +9,6 @@ class App < Sinatra::Base
 
  post '/' do
    @input_text = params['input_text']
+   erb :new
  end
 end
