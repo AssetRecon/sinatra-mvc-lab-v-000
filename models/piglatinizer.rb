@@ -4,7 +4,7 @@ def initialize(text)
   translate text
 end
 
-  def translate str
+  def translate(string)
     alpha = ('a'..'z').to_a
     vowels = %w[a e i o u]
     consonants = alpha - vowels
