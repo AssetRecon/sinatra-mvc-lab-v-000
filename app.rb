@@ -11,4 +11,5 @@ class App < Sinatra::Base
    @piglatin = PigLatinizer.new.piglatinize(params['input_text'])
    erb :new
  end
+ 
 end
